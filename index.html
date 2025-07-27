@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palakkad Tourism | The Granary of Kerala </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c5f2d;
+            --secondary: #97bc62;
+            --accent: #dba1018c;
+            --dark: #1a2c1b;
+            --light: #f8f9fa;
+            --text: #333;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7f6;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(151, 188, 98, 0.1) 0%, rgba(245, 247, 246, 0) 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .highlight {
+            color: yellow;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: inline-block;
+            position: relative;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            width: 70%;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 15%;
+            border-radius: 2px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(44, 95, 45, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(44, 95, 45, 0.4);
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::after {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn.view-details{
+            position: relative;
+            left: 20px;
+            margin-top: 20px;
+            grid-row: 3;
+            background-color: none;
+            padding: 12px;
+            border-width: 1px;
+            border-radius: 50%;
+            cursor: pointer;
+            flex-direction: column;
+            font-size: 20px;
+            
+        }
+        
+        .btn.view-details:hover{
+            background-color: var(--secondary);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(26, 44, 27, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(26, 44, 27, 0.98);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://keralatourism.travel/images/destinations/places-to-visit/idukki/munnar-idukki-kerala-tourism-entry-fee-timings-holidays-reviews-small.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            animation: fadeInDown 1s ease;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.6rem;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+            animation: fadeInUp 1s ease;
+            font-weight: 300;
+        }
+
+        .hero .btn {
+            animation: fadeIn 1.5s ease;
+            font-size: 1.1rem;
+            padding: 15px 40px;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2.5rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 400px;
+            height: 400px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%232c5f2d" fill-opacity="0.05" d="M20,20 Q40,5 50,30 T90,20"/></svg>') no-repeat;
+            background-size: contain;
+            z-index: 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-text h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transform: rotate(2deg);
+            transition: var(--transition);
+        }
+
+        .about-image:hover {
+            transform: rotate(0) scale(1.02);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Destinations Section */
+        .destinations {
+            background: linear-gradient(to bottom, #a9c5b7, #e9f0e1);
+            position: relative;
+        }
+
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .destination-card {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            padding-bottom: 50px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .destination-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 25px;
+            position: relative;
+        }
+
+        .card-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .card-content p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #f3c623;
+            color: var(--dark);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: auto;
+            transition: var(--transition);
+        }
+
+        .map-link:hover {
+            color: var(--secondary);
+            gap: 12px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: linear-gradient(to bottom, #a9c5b7, #e9f0e1);
+            position: relative;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            height: 280px;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 20px 15px 15px;
+            transform: translateY(100%);
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .gallery-item:hover .caption {
+            transform: translateY(0);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(to bottom, #e6f0e1, #d5e6d1);
+            position: relative;
+        }
+
+        .testimonial-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-slide {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: none;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #555;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--secondary);
+            opacity: 0.2;
+            position: absolute;
+            font-family: serif;
+        }
+
+        .testimonial-text::before {
+            top: -30px;
+            left: -20px;
+        }
+
+        .testimonial-text::after {
+            bottom: -60px;
+            right: -20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .author-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--secondary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+
+        .author-info p {
+            color: #777;
+            font-size: 1rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 15px;
+        }
+
+        .testimonial-nav button {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: none;
+            background: #ccc;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-nav button.active {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            color: #ccc;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a i {
+            color: var(--secondary);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+            color: var(--dark);
+        }
+
+        .helpline-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px 30px;
+            margin-top: 20px;
+        }
+
+        .helpline-section h4 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .helpline-section p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-25px) translateX(-50%); }
+            60% { transform: translateY(-15px) translateX(-50%); }
+        }
+
+        @keyframes modalOpen {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.4rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--dark);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 60px;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .destinations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-slide {
+                padding: 25px;
+            }
+            
+            .testimonial-text {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>Palakkad <span class = "highlight">Explorer</span></h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Witness Palakkad</h1>
+            <p>Granary of Kerala</p>
+            <a href="#destinations" class="btn">Explore Destinations</a>
+        </div>
+        <div class="scroll-down" onclick="document.querySelector('#about').scrollIntoView({ behavior: 'smooth' })">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Palakkad</h2>
+                <p>The cultural and heritage hotspot of medieval Kerala</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Emerald Landscape of Kerala</h3>
+                    <p>Celebrated as the granary of Kerala, Palakkad is a vast expense of verdant plains interspersed with hills, rivers, mountain streams and forests. The gateway to Kerala from the North, a 40 kilometer break in the mountain known as the Palakkad Gap give access to this land situated at the foot of the Western Ghats. The pass acts as a corridor between Kerala and neighboring Tamil Nadu and played a major road in the trade contacts between East and West coasts of peninsular India.</p>
+                    <p>Historically a hotspot of trade and transport-Palakkad has numerous historical locations, cultural heritages and biodiverse nature.</p>
+                    <p>Uncover the Mesmerising Tones of Palakkad's Landscape. A historical haven amidst a verdant backdrop! Palakkad is a district graced by captivating hills, lush forests, scenic landscapes, and a cultural heritage that weaves through its every corner.</p>
+                    <a href="#destinations" class="btn">Explore Destinations</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://www.keralatourism.org/images/enchanting_kerala/large/romancing_with_the_mist_clad_hills20131221064055_470_1.jpg" alt="Idukki Landscape">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section class="destinations" id="destinations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Top Destinations</h2>
+                <p>Visit Palakkad's Rich Heritage </p>
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="nature">Nature</button>
+                <button class="filter-btn" data-filter="recreational">Recreational</button>
+                <button class="filter-btn" data-filter="cultural">Cultural</button>
+            </div>
+            <div class="destinations-grid" id="destinationsContainer">
+                <!-- Destination cards will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Gallery</h2>
+                <p>Capturing the essence of Palakkad</p>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dptl75ozr/image/upload/v1753524249/Palakkad-Fort-1_yrdlfc.jpg" alt="fort">
+                    <div class="caption">Palakkad Fort</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dptl75ozr/image/upload/v1753524249/fantasy_park_nw5rb4.jpg" alt="park">
+                    <div class="caption">Malampuzha Fantasy Park</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dptl75ozr/image/upload/v1753524249/olappamanna_mana_tl0k4v.jpg" alt="mana">
+                    <div class="caption">Olappamanna Mana</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dptl75ozr/image/upload/v1753524263/nelliyampathy_large_ymeeul.jpg" alt="nel">
+                    <div class="caption">Nelliyampathy Hills</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dptl75ozr/image/upload/v1753524332/kalpathy-temple_zc7w0z.jpg" alt="ulstavam">
+                    <div class="caption">Kalpathi Ratholstavam</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="#" alt="Periyar National Park">
+                    <div class="caption">xxxx</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Palakkad Explorer</h3>
+                    <p>Your ultimate guide to exploring the granary of kerala. Discover undisturbed history, roots of culture and recreation like no other.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/keralatourismofficial/reels"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/keralatourism/status/597378080731082753?lang=en"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/palakkadtourismm?igsh=MWl2dTdqY3A5MmxyYQ=="><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/watch?v=duGEQ5eSQ1g"><i class="fab fa-youtube"></i></a>
+                        <a href="https://in.pinterest.com/reachkerala/palakkad-district-kerala"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                    
+                    <div class="helpline-section">
+                        <h4><i class="fas fa-phone-volume"></i> Tourism Helpline</h4>
+                        <p><i class="fas fa-phone"></i> +91 xxx 340 3928</p>
+                        <p><i class="fas fa-mobile-alt"></i> +91 xxx 555 7777</p>
+                        <p><i class="fas fa-envelope"></i> help@keralatourism.org</p>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Popular Destinations</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="destination-link" data-id="0"><i class="fas fa-map-marker-alt"></i> Malampuzha Dam</a></li>
+                        <li><a href="#" class="destination-link" data-id="1"><i class="fas fa-map-marker-alt"></i> Parambikulam Wildlife Sanctuary</a></li>
+                        <li><a href="#" class="destination-link" data-id="2"><i class="fas fa-map-marker-alt"></i> Hyder Ali Fort</a></li>
+                        <li><a href="#" class="destination-link" data-id="3"><i class="fas fa-map-marker-alt"></i> Varikkassery Mana</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> District Tourism Office, Palakkad , Kerala 678001</p>
+                    <p><i class="fas fa-phone"></i> +91 xxx 102111</p>
+                    <p><i class="fas fa-envelope"></i> info@fakeemail.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 6:00 PM</p>
+                    <a href="#" class="btn" style="margin-top: 15px;">Get Travel Guide</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Palakkad Explorer. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for Kerala Tourism</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+     <script>
+        // Destination Data with Google Maps links, restaurants and stays
+        const destinations = [
+            {
+                id: 0,
+                name: "Malambuzha Dam",
+                image: "https://res.cloudinary.com/dptl75ozr/image/upload/v1753507655/malampuzha_dam_skwbp4.jpg",
+                shortDesc: "Asia's largest arch dam and an engineering marvel.",
+                longDesc: "Malampuzha is a quaint little town in Kerala State that has developed around the agricultural dam built there. It is home to Malampuzha Garden known as the vrindavan of kerala, snake park, hanging bridge, and recreational facilities like boating . It is 10 kms from Palakkad.",
+                category: "recreation",
+                climate: "Rainy and comfortable",
+                activities: " Boating, Photography , Water park ",
+                bestTime: "November to February",
+                mapLink: "https://maps.app.goo.gl/9PE1Nngqkfec3oqF9",
+                restaurants: [
+                    { restaurantName: "Thazhvarath Restaurant", cuisine: "Multi-cuisine" },
+                    { restaurantName: "BELVOIR Restaurant", cuisine: "Multi-cuisine" }
+                ],
+                stays: [
+                    { hotelName: "Hotel Govardhana Samos", type: "3-Star Resort" },
+                    { hotelName: "Au Revoir Resort", type: "Resort" }
+                ]
+            },
+            {
+                id: 1,
+                name: "Parambikulam Wildlife Sanctuary",
+                image: "https://res.cloudinary.com/dptl75ozr/image/upload/v1753507655/parambikulam_vzfkjk.jpg",
+                shortDesc: "A haven for wildlife enthusiasts, offering opportunities to spot elephants, tigers, and other animals.",
+                longDesc: "Parambikulam Tiger Reserve, which also includes the erstwhile Parambikulam Wildlife Sanctuary, is a 643.66 square kilometres (248.5 sq mi)[2] protected area lying in Palakkad district and Thrissur district of Kerala state, South India.The tiger reserve has remnants of the Cochin State Forest Tramway, which was used to ship wood from the Parambikulam forests to the nearby harbor at Kochi, and from there to different locations of the world.",
+                category: "nature",
+                climate: "cool and pleasant",
+                activities: "sight-seeing, safari",
+                bestTime: "september to may",
+                mapLink: "https://maps.app.goo.gl/9esVSKhDbGiEwMNX7",
+                restaurants: [
+                    {restaurantName: "Honeycomb", cuisine: "Multi-cuisine"}
+                ],
+                stays: [
+                    {hotelName: "Honeycomb", type: "getaway resort"},
+                    {hotelName: "Tented Niche", type: "resort"}
+                ]
+            },
+            {
+                id: 2,
+                name: "Hyder Ali Fort",
+                image: "https://res.cloudinary.com/dptl75ozr/image/upload/v1753507655/PalakkadFort_she9aa.jpg",
+                shortDesc: "Palakkad Fort is an old fort situated in the heart of Palakkad city of Kerala state, southern India. It was recaptured and rebuilt grandly by Sultan Hyder Ali in 1766 A.D and remains one of the best-preserved forts in Kerala.",
+                longDesc: "The Palakkad Fort is said to have existed from very ancient times but believed to be constructed in the present form in 1766 A.D, but little is known of its early history. The local ruler, Palakkad Achchan, was originally a tributary of the Samoothiri but had become independent before the beginning of the eighteenth century.",
+                category: "cultural",
+                climate: "moderately wet",
+                activities: "sight-seeing",
+                bestTime: "All year round",
+                mapLink: "https://maps.app.goo.gl/5rJ9dNSM78Qxf1MGA",
+                restaurants: [
+                    {restaurantName: "Farzi Kuzhimanthi", cuisine: "arabian"},
+                    {restaurantName: "Aadhi Bhavan", cuisine: "Indian vegetarian"}
+                ],
+                stays: [
+                    {hotelName: "Hotel Fort Palace", type: "4 star hotel"},
+                    {hotelName: "Hotel Indraprastha", type: "3 star hotel"}
+                ]
+            },
+            {
+                id: 3,
+                name: "Varikkassery Mana",
+                image: "https://res.cloudinary.com/dptl75ozr/image/upload/v1753506638/cardImg_Mana.jpg",
+                shortDesc: "Varikkumanchery Mana, is a well known mansion belonging to Namboothiri nobility in Valluvanad region of Kerala.",
+                longDesc: "Built in traditional Kerala architectural on a plot of land measuring approximately 4 acres, the building is located at Manissery, a village in Ottapalam in Palakkad. It is a popular shooting location for several commercially successful films such as Devasuram, Aaraam Thampuran, Rappakal and Aranmanai 4.",
+                category: "cultural",
+                climate: "humid",
+                activities: "sight-seeing",
+                bestTime: "All year round",
+                mapLink: "https://maps.app.goo.gl/DpbX46AKN4jDqBLj9",
+                restaurants: [
+                    {restaurantName: "Muttam Diner", cuisine: "Indian"},
+                    {restaurantName: "PARAMOUNT RESTAURANT & PINK CAFE", cuisine: "Multi-cuisine"}
+                ],
+                stays: [
+                    {hotelName: "Kalappura Farm House", type: "resort"}
+                ]
+            }
+        ];
+
+        // DOM Elements
+        const destinationsContainer = document.getElementById('destinationsContainer');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const header = document.getElementById('header');
+        const destinationLinks = document.querySelectorAll('.destination-link');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate destination cards
+            generateDestinationCards(destinations);
+            
+            // Add event listeners
+            addEventListeners();
+            
+            
+        });
+
+        // Generate destination cards
+        function generateDestinationCards(destinationsArray){
+            destinationsContainer.innerHTML = '';
+            
+            destinationsArray.forEach(destination => {
+                const card = document.createElement('div');
+                card.className = `destination-card ${destination.category}`;
+                card.innerHTML = `
+                    <div class = "card-image">
+                        <img src = "${destination.image}" alt = "${destination.name}">
+                    </div>
+                    <div class = "card-content">
+                        <h3>${destination.name}</h3>
+                        <p>${destination.shortDesc}</p>
+                        <a href = "${destination.mapLink}" target = "_blank" class = "map-link">
+                            <i class = "fas fa-map-marker-alt"></i> View on map
+                        </a>
+                    </div>
+                    <div>
+                        <button class = "btn view-details" aria-label = "View Details" data-id = "${destination.id}">
+                            <i class = "fas fa-circle-info"></i>
+                        </button>
+                    </div>
+                    <div class = "card-badge">${destination.category.charAt(0).toUpperCase() + destination.category.slice(1)}</div>
+                    `;
+                    destinationsContainer.appendChild(card);
+            });
+        
+            
+            // Add event listeners to detail buttons
+            document.querySelectorAll('.view-details').forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    showDestinationDetails(id);
+                });
+            });
+        }
+
+        // Show destination details
+        function showDestinationDetails(id) {
+            const destination = destinations.find(dest => dest.id === parseInt(id));
+            
+            if (destination) {
+                // Create modal-like overlay
+                const overlay = document.createElement('div');
+                overlay.style.position = 'fixed';
+                overlay.style.top = '0';
+                overlay.style.left = '0';
+                overlay.style.width = '100%';
+                overlay.style.height = '100%';
+                overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+                overlay.style.zIndex = '2000';
+                overlay.style.display = 'flex';
+                overlay.style.justifyContent = 'center';
+                overlay.style.alignItems = 'center';
+                overlay.style.padding = '20px';
+                overlay.style.overflowY = 'auto';
+                
+                // Create modal content
+                const modalContent = document.createElement('div');
+                modalContent.style.background = 'white';
+                modalContent.style.maxWidth = '900px';
+                modalContent.style.width = '100%';
+                modalContent.style.borderRadius = '15px';
+                modalContent.style.overflow = 'hidden';
+                modalContent.style.position = 'relative';
+                modalContent.style.animation = 'modalOpen 0.5s ease';
+                modalContent.style.maxHeight = '90vh';
+                modalContent.style.overflowY = 'auto';
+                
+                // Generate restaurants HTML
+                let restaurantsHTML = '';
+                destination.restaurants.forEach(restaurant => {
+                    restaurantsHTML += `
+                        <div style="margin-bottom: 10px;">
+                            <div style="font-weight: 600;">${restaurant.restaurantName}</div>
+                            <div style="font-size: 0.9rem; color: #666;">${restaurant.cuisine}</div>
+                        </div>
+                    `;
+                });
+                
+                // Generate stays HTML
+                let staysHTML = '';
+                destination.stays.forEach(stay => {
+                    staysHTML += `
+                        <div style="margin-bottom: 10px;">
+                            <div style="font-weight: 600;">${stay.hotelName}</div>
+                            <div style="font-size: 0.9rem; color: #666;">${stay.type}</div>
+                        </div>
+                    `;
+                });
+                
+                modalContent.innerHTML = `
+                    <div style="background: var(--primary); padding: 25px; color: white; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10;">
+                        <h3 style="font-size: 1.8rem; font-family: 'Playfair Display', serif;">${destination.name}</h3>
+                        <button class="close-modal" style="background: none; border: none; color: white; font-size: 2rem; cursor: pointer; transition: all 0.3s ease;">&times;</button>
+                    </div>
+                    <div style="padding: 30px; display: flex; gap: 30px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 300px; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                            <img src="${destination.image}" alt="${destination.name}" style="width: 100%; height: auto; display: block;">
+                        </div>
+                        <div style="flex: 1; min-width: 300px;">
+                            <p style="margin-bottom: 20px; font-size: 1.1rem; line-height: 1.8;">${destination.longDesc}</p>
+                            <div style="display: flex; gap: 15px; margin: 20px 0; flex-wrap: wrap;">
+                                <div style="background: var(--light); padding: 12px 15px; border-radius: 8px; display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-sun" style="color: var(--primary);"></i>
+                                    <span>Climate: ${destination.climate}</span>
+                                </div>
+                                <div style="background: var(--light); padding: 12px 15px; border-radius: 8px; display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-hiking" style="color: var(--primary);"></i>
+                                    <span>Activities: ${destination.activities}</span>
+                                </div>
+                                <div style="background: var(--light); padding: 12px 15px; border-radius: 8px; display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-calendar-alt" style="color: var(--primary);"></i>
+                                    <span>Best Time: ${destination.bestTime}</span>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: 30px; display: flex; gap: 30px; flex-wrap: wrap;">
+                                <div style="flex: 1; min-width: 250px;">
+                                    <h4 style="color: var(--primary); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-utensils"></i> Nearby Restaurants
+                                    </h4>
+                                    ${restaurantsHTML}
+                                </div>
+                                <div style="flex: 1; min-width: 250px;">
+                                    <h4 style="color: var(--primary); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-hotel"></i> Stay Facilities
+                                    </h4>
+                                    ${staysHTML}
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: 20px; display: flex; gap: 15px;">
+                                <a href="${destination.mapLink}" target="_blank" class="btn" style="margin-top: 10px;">
+                                    <i class="fas fa-map-marker-alt"></i> Open in Google Maps
+                                </a>
+                                <a href="#contact" class="btn" style="margin-top: 10px; background: var(--secondary);">
+                                    <i class="fas fa-phone"></i> Contact for Booking
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                overlay.appendChild(modalContent);
+                document.body.appendChild(overlay);
+                
+                // Close modal
+                const closeBtn = modalContent.querySelector('.close-modal');
+                closeBtn.addEventListener('click', () => {
+                    document.body.removeChild(overlay);
+                });
+                
+                // Close when clicking outside
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) {
+                        document.body.removeChild(overlay);
+                    }
+                });
+            }
+        }
+
+        // Add event listeners
+        function addEventListeners() {
+            // Filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    if (filter === 'all') {
+                        generateDestinationCards(destinations);
+                    } else {
+                        const filtered = destinations.filter(dest => dest.category === filter);
+                        generateDestinationCards(filtered);
+                    }
+                });
+            });
+            
+            // Footer destination links
+            destinationLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const id = this.getAttribute('data-id');
+                    showDestinationDetails(id);
+                    
+                    // Scroll to top
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Menu toggle for mobile
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+        }
+
+        
+    </script>   
+</body>
+</html>

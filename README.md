@@ -1,1 +1,1 @@
-# palakkad-tourism
+# Idukki
