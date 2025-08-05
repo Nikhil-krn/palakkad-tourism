@@ -1,1 +1,1 @@
-# Idukki
+# Palakkad Tourism website
